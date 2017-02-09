@@ -46,7 +46,7 @@ public class Codec {
     {
 		string val = nodes.Dequeue();
 		if(val.Equals("#"))
-			return null;
+		    return null;
 		else
 		{
 			TreeNode node = new TreeNode(Int32.Parse(val));
