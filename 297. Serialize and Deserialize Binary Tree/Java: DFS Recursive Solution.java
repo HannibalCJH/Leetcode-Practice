@@ -44,21 +44,21 @@ public class Codec {
         return buildTree(nodes);
     }
 
-	private TreeNode buildTree(Queue<String> nodes)
-	{
-		// 取得节点的值
-		String val = nodes.poll();
-		if(val.equals("#"))
-			return null;
-		else
-		{
-			// 创建当前节点
-			TreeNode node = new TreeNode(Integer.parseInt(val));
-			node.left = buildTree(nodes);
-			node.right = buildTree(nodes);
-			return node;
-		}
-	}
+    private TreeNode buildTree(Queue<String> nodes)
+    {
+        // 取得节点的值
+        String val = nodes.poll();
+        if(val.equals("#"))
+            return null;
+        else
+        {
+            // 创建当前节点
+            TreeNode node = new TreeNode(Integer.parseInt(val));
+            node.left = buildTree(nodes);
+            node.right = buildTree(nodes);
+            return node;
+        }
+    }
 }
 
 // Your Codec object will be instantiated and called as such:
