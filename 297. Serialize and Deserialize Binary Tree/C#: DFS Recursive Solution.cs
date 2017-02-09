@@ -32,7 +32,7 @@ public class Codec {
     }
     
 	// Decodes your encoded data to tree.
-	public TreeNode deserialize(string data)
+    public TreeNode deserialize(string data)
 	{
 		Queue<string> nodes = new Queue<string>();
 		foreach(string node in data.Split(new char[]{','}, StringSplitOptions.RemoveEmptyEntries))
