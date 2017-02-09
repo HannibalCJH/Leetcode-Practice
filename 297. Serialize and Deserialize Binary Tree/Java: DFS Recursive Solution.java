@@ -32,7 +32,7 @@ public class Codec {
         }
     }
     
-	// Decodes your encoded data to tree.
+    // Decodes your encoded data to tree.
 	// 时间复杂度O(n)，空间复杂度O(n)
 	public TreeNode deserialize(String data)
 	{
