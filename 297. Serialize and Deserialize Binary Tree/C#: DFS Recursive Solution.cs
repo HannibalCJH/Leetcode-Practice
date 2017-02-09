@@ -34,8 +34,8 @@ public class Codec {
     // Decodes your encoded data to tree.
     public TreeNode deserialize(string data)
     {
-		if(data.Length == 0)
-			return null;
+        if(data.Length == 0)
+            return null;
         Queue<string> nodes = new Queue<string>();
         foreach(string node in data.Split(new char[]{','}, StringSplitOptions.RemoveEmptyEntries))
 	{
