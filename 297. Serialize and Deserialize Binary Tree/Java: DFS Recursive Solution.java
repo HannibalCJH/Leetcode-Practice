@@ -39,20 +39,20 @@ public class Codec {
 		Queue<String> nodes = new LinkedList<String>();
 		for(String node : data.split(","))
 		{
-		    nodes.offer(node);
+			nodes.offer(node);
 		}
 		return buildTree(nodes);
 	}
 
 	private TreeNode buildTree(Queue<String> nodes)
 	{
-	    // 取得节点的值
+		// 取得节点的值
 		String val = nodes.poll();
 		if(val.equals("#"))
 			return null;
 		else
 		{
-		    // 创建当前节点
+			// 创建当前节点
 			TreeNode node = new TreeNode(Integer.parseInt(val));
 			node.left = buildTree(nodes);
 			node.right = buildTree(nodes);
