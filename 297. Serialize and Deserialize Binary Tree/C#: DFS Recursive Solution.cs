@@ -44,17 +44,17 @@ public class Codec {
 
     private TreeNode BuildTree(Queue<string> nodes)
     {
-		string val = nodes.Dequeue();
-		if(val.Equals("#"))
-		    return null;
-		else
-		{
-			TreeNode node = new TreeNode(Int32.Parse(val));
-			node.left = BuildTree(nodes);
-			node.right = BuildTree(nodes);
-			return node;
-		}
-	}
+        string val = nodes.Dequeue();
+        if(val.Equals("#"))
+            return null;
+        else
+        {
+            TreeNode node = new TreeNode(Int32.Parse(val));
+            node.left = BuildTree(nodes);
+            node.right = BuildTree(nodes);
+            return node;
+        }
+    }
 }
 
 // Your Codec object will be instantiated and called as such:
