@@ -36,6 +36,8 @@ public class Codec {
     // 时间复杂度O(n)，空间复杂度O(n)
     public TreeNode deserialize(String data)
     {
+        if(data.isEmpty())
+            return null;
         Queue<String> nodes = new LinkedList<String>();
         for(String node : data.split(","))
         {
