@@ -31,19 +31,19 @@ public class Codec {
         }
     }
     
-	// Decodes your encoded data to tree.
+    // Decodes your encoded data to tree.
     public TreeNode deserialize(string data)
+    {
+        Queue<string> nodes = new Queue<string>();
+        foreach(string node in data.Split(new char[]{','}, StringSplitOptions.RemoveEmptyEntries))
 	{
-		Queue<string> nodes = new Queue<string>();
-		foreach(string node in data.Split(new char[]{','}, StringSplitOptions.RemoveEmptyEntries))
-		{
-		    nodes.Enqueue(node);
-		}
-		return BuildTree(nodes);
-	}
+            nodes.Enqueue(node);
+        }
+        return BuildTree(nodes);
+    }
 
-	private TreeNode BuildTree(Queue<string> nodes)
-	{
+    private TreeNode BuildTree(Queue<string> nodes)
+    {
 		string val = nodes.Dequeue();
 		if(val.Equals("#"))
 			return null;
