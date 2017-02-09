@@ -35,14 +35,14 @@ public class Codec {
     // Decodes your encoded data to tree.
     // 时间复杂度O(n)，空间复杂度O(n)
     public TreeNode deserialize(String data)
-	{
-		Queue<String> nodes = new LinkedList<String>();
-		for(String node : data.split(","))
-		{
-			nodes.offer(node);
-		}
-		return buildTree(nodes);
-	}
+    {
+        Queue<String> nodes = new LinkedList<String>();
+        for(String node : data.split(","))
+        {
+            nodes.offer(node);
+        }
+        return buildTree(nodes);
+    }
 
 	private TreeNode buildTree(Queue<String> nodes)
 	{
