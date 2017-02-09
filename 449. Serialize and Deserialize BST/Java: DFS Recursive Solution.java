@@ -32,18 +32,18 @@ public class Codec {
     }
     
     // Decodes your encoded data to tree.
-	// 时间复杂度O(nlogn)，空间复杂度O(n)
-	public TreeNode deserialize(String data)
-	{
-	    if(data.isEmpty())
-	        return null;
-		Queue<Integer> nodes = new LinkedList<Integer>();
-		for(String node : data.split(","))
-		{
-		    nodes.offer(Integer.parseInt(node));
-		}
-		return buildTree(nodes);
-	}
+    // 时间复杂度O(nlogn)，空间复杂度O(n)
+    public TreeNode deserialize(String data)
+    {
+        if(data.isEmpty())
+            return null;
+        Queue<Integer> nodes = new LinkedList<Integer>();
+        for(String node : data.split(","))
+        {
+            nodes.offer(Integer.parseInt(node));
+        }
+        return buildTree(nodes);
+    }
     
     private TreeNode buildTree(Queue<Integer> nodes) 
     {
