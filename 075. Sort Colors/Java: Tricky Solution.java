@@ -1,8 +1,8 @@
 public class Solution {
     // 时间复杂度O(n)，空间复杂度O(1)
     // 取巧做法，覆盖颜色
-	public void sortColors(int[] nums) 
-	{
+    public void sortColors(int[] nums) 
+    {
         int[] counts = new int[3];
         // 先扫一遍，分别记下各种颜色出现的次数
         for(int i = 0; i < nums.length; i++)
