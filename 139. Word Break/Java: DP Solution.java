@@ -1,4 +1,6 @@
 public class Solution {
+    // 时间复杂度O(n^2)，n为字符串长度
+    // 空间复杂度O(n)，dp数组
     public boolean wordBreak(String s, List<String> wordDict) 
     {
         // dp[i]表示前i个字符能被完美切分，这里i从1开始
