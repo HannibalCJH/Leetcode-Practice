@@ -52,7 +52,7 @@ class UnionFind
 
 
 public class Solution {
-    // 时间复杂度O(mn)，m为边的个数，n为节点的个数，每条边都要执行union操作
+    // 时间复杂度O(n^m)，m为边的个数，n为节点的个数，每条边都要执行union操作
     // 空间复杂度O(n)
     public boolean validTree(int n, int[][] edges) 
     {
