@@ -1,6 +1,6 @@
 public class Solution {
     // 类比斐波那契数列
-    // 时间复杂度O(n)，空间复杂度O(1)
+    // 时间复杂度O(n^2)，空间复杂度O(1)
     public int numDecodings(String s) 
     {
         if(s == null || s.length() == 0 || s.charAt(0) == '0')
