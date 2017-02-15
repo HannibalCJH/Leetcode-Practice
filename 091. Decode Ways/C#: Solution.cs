@@ -1,5 +1,5 @@
 public class Solution {
-    // 动态规划，遍历一遍字符串，时间复杂度O(n)
+    // 动态规划，遍历一遍字符串，时间复杂度O(n^2)，string.Substring()的时间复杂度是O(n)
     // 空间复杂度O(n)
     public int NumDecodings(string s) 
     {
