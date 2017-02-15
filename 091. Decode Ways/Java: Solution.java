@@ -1,6 +1,6 @@
 public class Solution {
-    // 动态规划，遍历一遍字符串，时间复杂度O(n)
-    // 空间复杂度O(n^2)，Java的String.substring()的时间复杂度O(n)
+    // 动态规划，遍历一遍字符串，时间复杂度O(n^2)，Java的String.substring()的时间复杂度O(n)
+    // 空间复杂度O(n)
     public int numDecodings(String s) 
     {
         // 第一个数字为0则没有解法
