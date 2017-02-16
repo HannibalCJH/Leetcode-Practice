@@ -16,6 +16,7 @@ public class Solution {
             
         ListNode pre = head, cur = head.next;
         ListNode next;
+        // 记得把头指针的next指向空不然会形成环
         pre.next = null;
         while(cur != null)
         {
