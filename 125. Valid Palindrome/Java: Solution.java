@@ -9,7 +9,7 @@ public class Solution {
         while(left <= right)
         {
             // 转换成小写
-            char lChar = Character.toLowerCase(s.charAt(left)), rChar = Character.toLowerCase(s.charAt(right));
+            char lChar = s.charAt(left), rChar = s.charAt(right);
             if(!Character.isLetterOrDigit(lChar))
             {
                 left++;
@@ -20,7 +20,7 @@ public class Solution {
             }
             else
             {
-                if(lChar == rChar)
+                if(Character.toLowerCase(lChar) == Character.toLowerCase(rChar))
                 {
                     left++;
                     right--;
