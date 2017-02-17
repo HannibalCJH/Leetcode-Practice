@@ -1,5 +1,5 @@
 public class Solution {
-    // 时间复杂度O((n^2)(2^n))，类似subsets，加上每层中有for循环和isPalindrome都是O(n)的复杂度
+    // 时间复杂度O((n^3)(2^n))，类似subsets，加上每层中有for循环和isPalindrome都是O(n)的复杂度，且String.substring也是O(n)
     // 时间复杂度O(n)
     List<List<String>> result;
     
