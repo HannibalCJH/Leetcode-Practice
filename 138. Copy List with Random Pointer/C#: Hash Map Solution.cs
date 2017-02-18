@@ -30,10 +30,9 @@ public class Solution {
     private RandomListNode CopyNode(RandomListNode node, Dictionary<RandomListNode, RandomListNode> map)
     {
         if(node == null)
-        {
             return null;
-        }
-        else if(!map.ContainsKey(node))
+        
+        if(!map.ContainsKey(node))
         {
             map.Add(node, new RandomListNode(node.label));
         }
