@@ -16,11 +16,11 @@ public class Solution {
             // 比最小的末尾数字还要小，直接更新长度为1的序列的末尾
             if(nums[i] < tails[0])
                 tails[0] = nums[i];
-            // 大于等于最大的末尾数字，说明有新的长度加1的序列产生，新开一个末尾
+            // 大于最大的末尾数字，说明有新的长度加1的序列产生，新开一个末尾
             else if(nums[i] > tails[len])
                 tails[++len] = nums[i];
             else
-                // 如果在中间，则二分搜索，找到末尾刚好大于等于nums[i]的末尾，更新这个末尾
+                // 如果在中间，则二分搜索，找到末尾刚好大于nums[i]的末尾，更新这个末尾
                 tails[binarySearch(tails, 0, len, nums[i])] = nums[i];
         }
         return len + 1;
