@@ -20,9 +20,8 @@ public class Codec {
         // BFS
         while(!queue.isEmpty())
         {
-            int size = queue.size();
-        	TreeNode cur = queue.poll();
-        	if(cur == null)
+            TreeNode cur = queue.poll();
+            if(cur == null)
             {
                 sb.append("#,");
             }
