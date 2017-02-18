@@ -2,9 +2,9 @@ public class Solution {
     // 时间复杂度O(nlogk)，k是常数所以可以看成O(n)
     // 空间复杂度O(k)
     // 利用红黑树TreeMap，不直接跟踪左边界。可以用在输入的stream即一个个字符输入的情况下，这样我们本身就无法跟踪左边界。
-    public int lengthOfLongestSubstringKDistinct(String str, int k) 
+    public int lengthOfLongestSubstringKDistinct(String s, int k) 
     {
-        if(str == null || str.length() == 0 || k == 0)
+        if(s == null || s.length() == 0 || k == 0)
             return 0;
             
         TreeMap<Integer, Character> lastOccurrence = new TreeMap<Integer, Character>();
@@ -12,9 +12,9 @@ public class Solution {
         Map<Character, Integer> inWindow = new HashMap<Character, Integer>();
         int left = 0;
         int longest = 0;
-        for(int right = 0; right < str.length(); right++) 
+        for(int right = 0; right < s.length(); right++) 
         {
-            char cur = str.charAt(right);
+            char cur = s.charAt(right);
             // inWindow子串中的不同字符个数已经达到k且cur在inWindow中不存在
             // 这样如果加入cur的话不同字符个数会达到k+1>k
             if(inWindow.size() == k && !inWindow.containsKey(cur)) 
