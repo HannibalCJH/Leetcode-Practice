@@ -40,7 +40,7 @@ public class Solution {
             RandomListNode cloneNode = node.next;
             node.next = cloneNode.next;
             node = node.next;
-            if(cloneNode.next != null)
+            if(node != null)
                 cloneNode.next = node.next;
         }
         return cloneHead;
