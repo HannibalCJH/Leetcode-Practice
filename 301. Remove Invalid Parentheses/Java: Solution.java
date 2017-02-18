@@ -1,5 +1,5 @@
 public class Solution {
-    // 时间复杂度O()
+    // 时间复杂度O(n^2)，空间复杂度O(n)
     public List<String> removeInvalidParentheses(String s) {
         List<String> result = new ArrayList<String>();
         if(s == null || s.length() == 0) 
