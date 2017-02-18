@@ -30,12 +30,12 @@ public class Solution {
     
     private RandomListNode copyNode(RandomListNode node, HashMap<RandomListNode, RandomListNode> map)
     {
+        if(node == null)
+            return null;
+        
         if(!map.containsKey(node))
         {
-            if(node != null)
-                map.put(node, new RandomListNode(node.label));
-            else
-                map.put(node, null);
+            map.put(node, new RandomListNode(node.label));
         }
         return map.get(node);
     }
