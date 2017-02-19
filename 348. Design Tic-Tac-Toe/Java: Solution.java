@@ -1,26 +1,24 @@
 public class TicTacToe {
-    // 记录每个玩家在每一行和每一列放的棋子的个数
-	int[][] rows = new int[2][];
-    int[][] cols = new int[2][];
-    int[] diag = new int[2];
-    int[] anti_diag = new int[2];
+    // 记录当前棋盘中每个玩家棋子的状况
+    int[][] rows;
+    int[][] cols;
+    int[] diag;
+    int[] anti_diag;
     int n;
 
-
-    // 时间复杂度O(n)，空间复杂度O(n)，棋盘行和列的数目都为n
+    // 时间复杂度O(1)，空间复杂度O(n)，棋盘行和列的数目都为n
     /** Initialize your data structure here. */
     public TicTacToe(int n) 
     {
-        for(int i = 0; i < n; i++) 
-        {
-            rows[0] = new int[n];
-            rows[1] = new int[n];
-            cols[0] = new int[n];
-            cols[1] = new int[n];
-        }
+        rows = new int[2][n];
+        cols = new int[2][n];
+        diag = new int[2];
+        anti_diag = new int[2];
         this.n = n;
     }
     
+    
+    // 时间复杂度O(n^2)，空间复杂度O(n)，棋盘行和列的数目都为n
     /** Player {player} makes a move at ({row}, {col}).
         @param row The row of the board.
         @param col The column of the board.
@@ -31,28 +29,31 @@ public class TicTacToe {
                 2: Player 2 wins. */
     public int move(int row, int col, int player) 
     {
-        player--; // 数组从0开始，使玩家号和下标对应
+        // 数组从0开始，使玩家号和下标对应
+        player--;
         // 对应行和列上的棋子个数加1
         rows[player][row]++;
         cols[player][col]++;
         // 棋子在对角线上
-        if(row == col) 
-        	diag[player]++;
-        if(row + col == n - 1) 
-        	anti_diag[player]++;
+        if(row == col)
+            diag[player]++;
+        if(row == n - 1 - col)
+            anti_diag[player]++;
+        
         // 检查是否已经有行、列或者对角线被某一个玩家占满
-        for(int i = 0; i < 2; i++) 
+        for(int i = 0; i < 2; i++)
         {
-        	// 检查对角线
-            if(diag[i] == n || anti_diag[i] == n) 
-            	return i + 1;
-            // 检查各行各列
-            for(int j = 0; j < n; j++) 
+            // 检查对角线
+            if(diag[i] == n || anti_diag[i] == n)
+                return i + 1;
+            for(int j = 0; j < n; j++)
             {
-                if(rows[i][j] == n) 
-                	return i + 1;
-                if(cols[i][j] == n) 
-                	return i + 1;
+                // 检查行
+                if(rows[i][j] == n)
+                    return i + 1;
+                // 检查列
+                if(cols[i][j] == n)
+                    return i + 1;
             }
         }
         return 0;
