@@ -2,7 +2,7 @@ public class Solution {
     // 时间复杂度O(n)，空间复杂度O(1)
     public int maxSubArray(int[] A) 
     {
-		// 记录全局最大值
+	// 记录全局最大值
         int maxSum = Integer.MIN_VALUE;  
         // 记录当前最大值
         int temp = 0;  
