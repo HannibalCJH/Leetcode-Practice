@@ -7,7 +7,7 @@ public class Solution {
         // 自己用[0,1,2,4,5,6,7]试一遍就一目了然
         int missing = 0, i = 0;
         for(i = 0; i < nums.length; i++)
-		    missing ^= i ^ nums[i];
+	    missing ^= i ^ nums[i];
         return missing ^ i;
     }
 }
