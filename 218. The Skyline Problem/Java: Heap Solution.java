@@ -1,5 +1,5 @@
 public class Solution {
-  // 时间复杂度O(nlogn)，空间复杂度O(n)
+        // 时间复杂度O(nlogn)，空间复杂度O(n)
 	public List<int[]> getSkyline(int[][] buildings) 
 	{
         List<int[]> result = new ArrayList<>();
