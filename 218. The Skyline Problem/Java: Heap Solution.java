@@ -1,7 +1,7 @@
 public class Solution {
-        // 时间复杂度O(nlogn)，空间复杂度O(n)
-	public List<int[]> getSkyline(int[][] buildings) 
-	{
+    // 时间复杂度O(nlogn)，空间复杂度O(n)
+    public List<int[]> getSkyline(int[][] buildings) 
+    {
         List<int[]> result = new ArrayList<>();
         List<int[]> height = new ArrayList<>();
         // 拆解矩形，构建顶点的列表
