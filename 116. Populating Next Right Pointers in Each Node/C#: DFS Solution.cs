@@ -11,17 +11,15 @@ public class Solution {
     // 时间复杂度O(n)，空间复杂度O(logn)，满二叉树的树高是logn
     public void Connect(TreeLinkNode root) 
     {
-        if(root == null)
+        // 不是最后一层叶节点或是空节点
+        if(root == null || root.left == null)
             return;
-        // 不是最后一层叶节点
-        if(root.left != null)
-        {
-            // 左节点的next指针指向右节点
-            root.left.next = root.right;
-            // 这一层的next节点已经在上一层的时候建立好
-            if(root.next != null)
-                root.right.next = root.next.left;
-        }
+
+        // 左节点的next指针指向右节点
+        root.left.next = root.right;
+        // 这一层的next节点已经在上一层的时候建立好
+        if(root.next != null)
+            root.right.next = root.next.left;
         
         Connect(root.left);
         Connect(root.right);
