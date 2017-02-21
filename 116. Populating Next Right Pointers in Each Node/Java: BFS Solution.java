@@ -26,10 +26,10 @@ public class Solution {
             for(int i = 0; i < size; i++)
             {
                 TreeLinkNode cur = queue.poll();
-                // 前一个兄弟节点的右节点指向当前节点的左节点
+                // 前一个兄弟节点的右节点next指针指向当前节点的左节点
                 if(pre != null)
                     pre.right.next = cur.left;
-                // 左节点的右指针指向右节点
+                // 左节点的next指针指向右节点
                 cur.left.next = cur.right;
                 pre = cur;
                 queue.offer(cur.left);
