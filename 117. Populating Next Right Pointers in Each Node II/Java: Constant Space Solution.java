@@ -30,7 +30,7 @@ public class Solution {
                 cur = cur.next;
             }
             
-            // 移动到下一层的第一个节点
+            // 移动到下一层的第一个节点，当下一层的第一个节点为空的时候跳出循环
             cur = head;
             head = null;
             prev = null;
