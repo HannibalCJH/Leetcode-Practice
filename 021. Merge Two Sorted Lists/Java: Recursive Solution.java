@@ -7,6 +7,7 @@
  * }
  */
 public class Solution {
+    // 递归法
     // 时间复杂度O(min(m, n))，当一个链表已经遍历完了，直接把另外的剩余链表整个接到最终链表后面不用再往下找，因为本来链表就是排序过的
     // 空间复杂度O(min(m, n))
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) 
