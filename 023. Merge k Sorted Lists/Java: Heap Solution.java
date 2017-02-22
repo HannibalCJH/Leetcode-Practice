@@ -8,6 +8,7 @@
  */
 public class Solution {
     // 时间复杂度O(nlogk)，n为所有节点的总数，k为总共有几个链表
+    // 空间复杂度O(k)
     public ListNode mergeKLists(ListNode[] lists) 
     {
         if(lists == null || lists.length == 0)
