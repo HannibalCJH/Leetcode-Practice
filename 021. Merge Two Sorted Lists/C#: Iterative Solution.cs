@@ -26,19 +26,11 @@ public class Solution {
             pre = pre.next;
         }
         
-        while(l1 != null)
-        {
+        if(l1 != null)
             pre.next = l1;
-            l1 = l1.next;
-            pre = pre.next;
-        }
         
-        while(l2 != null)
-        {
+        if(l2 != null)
             pre.next = l2;
-            l2 = l2.next;
-            pre = pre.next;
-        }
         
         return dummy.next;
     }
