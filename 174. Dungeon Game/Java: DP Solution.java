@@ -4,7 +4,7 @@ public class Solution {
     public int calculateMinimumHP(int[][] dungeon) 
     {
         int m = dungeon.length, n = dungeon[0].length;
-        // minHP[i][j]表示在i，j这个点的保证存活的情况下的最少血量
+        // minHP[i][j]表示到了i，j这个点后者保证存活的情况下能到达终点的最少血量
         int[][] minHP = new int[m][n];
         // 右下角最后一格的血量，如果dungeon是正数即回复生命值，那我们只要保证走到这一格还有1的血量即可
         // 如果是负数我们起码要保证有1 + |dungeon|即1 - dungeon的血量
