@@ -4,6 +4,7 @@ public class Solution {
     // 空间复杂度O(1)
     public int findKthLargest(int[] nums, int k) 
     {
+        // 数组下标从0开始所以传入k-1
         return quickSelect(nums, k - 1, 0, nums.length - 1);
     }
     
