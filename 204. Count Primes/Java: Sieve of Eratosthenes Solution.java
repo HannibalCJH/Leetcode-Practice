@@ -9,26 +9,26 @@ public class Solution {
         // 建立质数数组
         boolean[] isPrime = new boolean[n];
         // 初始化为都是质数
-		for(int i = 2; i < n; i++)
-			isPrime[i] = true;
-		// 循环条件用i*i<n，sqrt(n)太费时
-		// 排除合数就留下了质数
-		for(int i = 2; i * i < n; i++) 
-		{
-			// 已经排除则跳过
-			if(isPrime[i]);
-			{
-    			// 讨论i的倍数所以每次都是j+=i
-    			// 从i*i开始，前面的i*2，i*3等到都已经被讨论2和3的时候排除了
-    			for(int j = i * i; j < n; j += i)
-    				isPrime[j] = false;
-			}
-		}
-		int count = 0;
-		// 再进行一遍遍历统计个数
-		for(int i = 2; i < n; i++)
-			if(isPrime[i]) 
-				count++;
-		return count;
+	for(int i = 2; i < n; i++)
+	    isPrime[i] = true;
+	// 循环条件用i*i<n，sqrt(n)太费时
+	// 排除合数就留下了质数
+	for(int i = 2; i * i < n; i++) 
+	{
+	    // 已经排除则跳过
+	    if(isPrime[i]);
+	    {
+    		// 讨论i的倍数所以每次都是j+=i
+    		// 从i*i开始，前面的i*2，i*3等到都已经被讨论2和3的时候排除了
+    		for(int j = i * i; j < n; j += i)
+    		    isPrime[j] = false;
+	    }
+	}
+	int count = 0;
+	// 再进行一遍遍历统计个数
+	for(int i = 2; i < n; i++)
+	    if(isPrime[i]) 
+		count++;
+	return count;
     }
 }
