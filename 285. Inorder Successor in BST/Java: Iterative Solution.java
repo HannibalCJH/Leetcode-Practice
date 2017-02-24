@@ -9,7 +9,7 @@
  */
 public class Solution {
     // BST中序遍历是递增序列
-    // 时间复杂度O(logn)，空间复杂度O(logn)
+    // 时间复杂度O(h)，空间复杂度O(h)，h为树的高度
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) 
     {
         Stack<TreeNode> stack = new Stack<TreeNode>();
