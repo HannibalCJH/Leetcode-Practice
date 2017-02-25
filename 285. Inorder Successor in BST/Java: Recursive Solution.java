@@ -24,6 +24,7 @@ public class Solution {
             return leftResult == null ? root : leftResult;
         }
         // 当找到了p节点也还是继续搜索右子树，因为它的后继节点中右子树中
+        // 这里还有一个问题是我们会检查左子树返回的是不是空但不会检查右子树返回值
         return inorderSuccessor(root.right, p);
     }
 }
