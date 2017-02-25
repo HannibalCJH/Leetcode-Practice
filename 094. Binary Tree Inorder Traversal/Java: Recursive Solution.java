@@ -9,19 +9,15 @@
  */
 public class Solution {
     // 时间复杂度O(n)，空间复杂度O(h)，h为树的高度
+    List<Integer> result = new ArrayList<Integer>();
+    
     public List<Integer> inorderTraversal(TreeNode root) 
     {
-        List<Integer> result = new ArrayList<Integer>();
-        dfs(result, root);
+        if(root == null)
+            return result;
+        inorderTraversal(root.left);
+        result.add(root.val);
+        inorderTraversal(root.right);
         return result;
-    }
-    
-    private void dfs(List<Integer> result, TreeNode node)
-    {
-        if(node == null)
-            return;
-        dfs(result, node.left);
-        result.add(node.val);
-        dfs(result, node.right);
     }
 }
