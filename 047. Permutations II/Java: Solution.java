@@ -1,5 +1,5 @@
 public class Solution {
-    // 时间复杂度O(n^2)，空间复杂度O(n)
+    // 时间复杂度O(n!)，空间复杂度O(n)
     List<List<Integer>> result = new ArrayList<List<Integer>>();
     
     public List<List<Integer>> permuteUnique(int[] nums) 
