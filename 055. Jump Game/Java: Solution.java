@@ -4,7 +4,7 @@ public class Solution {
     {
         if(nums.length < 2)
             return true;
-        // 记录从0到i的位置直接的点能跳的最远的距离
+        // 记录从0到i的位置之间的点能跳的最远的距离
         int maxReach = 0;
         for(int i = 0; i < nums.length; i++)
             // 当前的位置还没有到达全局最远的距离，查看从这个点能否跳到比maxReach更远的点
