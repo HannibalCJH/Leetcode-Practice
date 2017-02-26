@@ -17,7 +17,7 @@ public class Solution {
             
         Stack<TreeNode> stack = new Stack<TreeNode>();
         stack.push(root);
-        while(!stack.isEmpty() && root != null)
+        while(!stack.isEmpty())
         {
             root = stack.pop();
             if(root.left == null && root.right == null && root.val == sum)
