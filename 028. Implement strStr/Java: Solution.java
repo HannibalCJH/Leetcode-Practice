@@ -1,5 +1,5 @@
 public class Solution {
-    // 时间复杂度O(n^2)，空间复杂度O(1)
+    // 时间复杂度O(mn)，空间复杂度O(1)
     public int strStr(String haystack, String needle) 
     {
         // needle是空字符串的情况返回0
