@@ -1,5 +1,6 @@
 public class Solution {
     // 时间复杂度O(nklogk)，n为字符串数组的长度，k为平均每个字符串的长度
+    // 空间复杂度O(n)
     public List<List<String>> groupAnagrams(String[] strs) 
     {
         List<List<String>> result = new ArrayList<>();
