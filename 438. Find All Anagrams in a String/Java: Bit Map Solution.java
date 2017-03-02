@@ -1,5 +1,5 @@
 public class Solution {
-    // 答案几乎和Minimum Window Substring一样，只需一点小改动
+    // 答案几乎和Minimum Window Substring一模一样，只需一点小改动
     // 时间复杂度O(n)，空间复杂度O(n)
     public List<Integer> findAnagrams(String s, String p) 
     {
@@ -53,7 +53,6 @@ public class Solution {
             // 往后找
             end++;
         }
-
         return result;
     }
 }
