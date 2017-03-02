@@ -105,23 +105,8 @@ public class LFUCache {
                 latestNodes.remove(node.count);
             // 创建这个键值对的新节点，被访问次数初始化为1
             ListNode cur = new ListNode(key, value, 1);
-            // 当前所有节点被访问次数都大于1
-            if(latestNodes.get(1) == null)
-            {
-                // 把新加入的节点插入到链表表头
-                insertNode(head, cur);
-            }
-            else 
-            {
-                // 得到之前被访问次数是1的最新节点
-                ListNode latestNode = latestNodes.get(1);
-                // 把当前节点插入到这个节点后面
-                insertNode(latestNode, cur);
-            }
-            // 更新被访问1次的节点的最新节点为当前节点
-            latestNodes.put(1, cur);
-            // 把这个节点存入哈希表
-            map.put(key, cur);
+            // 加到表头
+            addToHead(cur);
         } 
         else 
         {
@@ -129,24 +114,29 @@ public class LFUCache {
             size++;
             // 创建这个键值对的新节点，被访问次数初始化为1
             ListNode cur = new ListNode(key, value, 1);
-            // 当前所有节点被访问次数都大于1
-            if(latestNodes.get(1) == null)
-            {
-                // 把新加入的节点插入到链表表头
-                insertNode(head, cur);
-            }
-            else
-            {
-                // 得到之前被访问次数是1的最新节点
-                ListNode latestNode = latestNodes.get(1);
-                // 把当前节点插入到这个节点后面
-                insertNode(latestNode, cur);
-            }
-            // 更新被访问1次的节点的最新节点为当前节点
-            latestNodes.put(1, cur);
-            // 把这个节点存入哈希表
-            map.put(key, cur);
+            // 加到表头
+            addToHead(cur);
         }
+    }
+    
+    public void addToHead(ListNode node)
+    {
+        if(latestNodes.get(1) == null)
+        {
+            // 把新加入的节点插入到链表表头
+            insertNode(head, node);
+        }
+        else
+        {
+            // 得到之前被访问次数是1的最新节点
+            ListNode latestNode = latestNodes.get(1);
+            // 把当前节点插入到这个节点后面
+            insertNode(latestNode, node);
+        }
+        // 更新被访问1次的节点的最新节点为当前节点
+        latestNodes.put(1, node);
+        // 把这个节点存入哈希表
+        map.put(node.key, node);
     }
     
     public void insertNode(ListNode prev, ListNode cur) 
