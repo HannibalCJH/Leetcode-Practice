@@ -1,5 +1,5 @@
 public class Solution {
-    // 时间复杂度O(nlogn)，空间复杂度O(n)
+    // 时间复杂度O(nlogk)，空间复杂度O(n)
     public int[] maxSlidingWindow(int[] nums, int k) 
     {
         if(nums == null || nums.length == 0)
