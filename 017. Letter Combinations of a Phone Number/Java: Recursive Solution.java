@@ -1,5 +1,5 @@
 public class Solution {
-    // 时间复杂度为O(n*(m^n))，假设平均每个数字代表m个字母, 给定的数字序列digits长度为n
+    // 时间复杂度为O(m*(m^n)) ~ O(m^n)，假设平均每个数字代表m个字母, 给定的数字序列digits长度为n
     // 空间复杂度O(n)，递归栈空间，n为digits长度
     String[] keyPad = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     
