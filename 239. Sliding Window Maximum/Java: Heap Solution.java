@@ -1,22 +1,24 @@
 public class Solution {
     // 时间复杂度O(nlogn)，空间复杂度O(n)
     public int[] maxSlidingWindow(int[] nums, int k) 
-	{
-        if(nums == null || nums.length == 0) 
-        	return new int[0];
-        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());
-        int[] res = new int[nums.length + 1 - k];
+    {
+        if(nums == null || nums.length == 0)
+            return new int[0];
+        
+        int[] result = new int[nums.length - k + 1];
+        int index = 0;
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         for(int i = 0; i < nums.length; i++)
         {
-            // 把窗口最左边的数去掉
-            if(i >= k) 
-            	pq.remove(nums[i - k]);
-            // 把新的数加入窗口的堆中
+            // 移除窗口最左边的数字
+            if(i >= k)
+                pq.remove(nums[i - k]);
+            // 加入右边新的数字
             pq.offer(nums[i]);
-            // 堆顶就是窗口的最大值
-            if(i + 1 >= k) 
-            	res[i + 1 - k] = pq.peek();
+            // 堆顶就是最大的窗口值
+            if(i >= k - 1)
+                result[index++] = pq.peek();
         }
-        return res;
+        return result;
     }
 }
