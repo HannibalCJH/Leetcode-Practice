@@ -11,7 +11,7 @@ public class Solution {
         for(int i = 0; i < nums.length; i++)
         {
             // 每当新数进来时，如果发现队列头部的数，是窗口最左边数，则扔掉
-            if(i >= k && !deque.isEmpty() && deque.peekFirst() == nums[i - k])
+            if(i >= k && deque.peekFirst() == nums[i - k])
             {
                 deque.pollFirst();
             }
