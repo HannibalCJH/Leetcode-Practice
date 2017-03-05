@@ -36,8 +36,8 @@ public class Solution {
                 for(String nextWord : getNextWords(word, dict))
                 {
                     // 这个条件是判断nextWord是否已经在转变的序列中
-                	// 比如从log->lot->got->get，当前word是got，它的nextWords集合里
-                	// 既有向后变化的get也有之前的单词lot，这里是为了以防我们从got变回lot
+                    // 比如从log->lot->got->get，当前word是got，它的nextWords集合里
+                    // 既有向后变化的get也有之前的单词lot，这里是为了以防我们从got变回lot
                     if(!set.contains(nextWord))
                     {
                         // 变换后的单词就是目标单词，返回走过的步长
