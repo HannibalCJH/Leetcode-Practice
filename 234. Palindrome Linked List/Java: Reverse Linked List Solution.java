@@ -8,8 +8,8 @@
  */
 public class Solution {
     // 时间复杂度O(n)，空间复杂度O(1)
-	public boolean isPalindrome(ListNode head) 
-	{
+    public boolean isPalindrome(ListNode head) 
+    {
         ListNode slow = head, fast = head;
         while(fast != null && fast.next != null)
         {
