@@ -62,42 +62,39 @@ public class Twitter {
             }
         });
     
-        // 加入followee的tweets
-        Set<Integer> myFollowees = followees.get(userId);
-        // 有followee
-        if(myFollowees != null)
+        List<Integer> myFeed = new LinkedList<Integer>();
+        // 这个用户没有followee
+        if(!followees.containsKey(userId))
+            return myFeed;
+
+        // 遍历每个followee
+        for(int followeeId : followees.get(userId))
         {
-            // 遍历每个followee
-            for(int followeeId : myFollowees)
+            // 这个followee没发过tweets
+            if(!tweets.containsKey(followeeId))
+                continue;
+            for(Tweet twt : tweets.get(followeeId))
             {
-                // 获取这个followee的所有tweets
-                LinkedList<Tweet> followeeTweets = tweets.get(followeeId);
-                // 这个followee没发过tweets
-                if(followeeTweets == null) 
-                    continue;
-                for(Tweet twt : followeeTweets)
+                // feed堆还没达到最大额度直接把这条tweet加入堆
+                if(feedHeap.size() < feedMaxNum) 
+                    feedHeap.offer(twt);
+                else
                 {
-                    // feed堆还没达到最大额度直接把这条tweet加入堆
-                    if(feedHeap.size() < feedMaxNum) 
-                        feedHeap.add(twt);
+                    // 这条tweet比堆顶即堆中最早的tweet还要早就跳出循环，因为链表中的tweet的排序是最新的在最前面，
+                    // 所以这条tweet后面的tweets肯定时间戳都比当前这条还要早，没必要再往下找
+                    if(twt.timePosted <= feedHeap.peek().timePosted) 
+                        break;
                     else
                     {
-                        // 这条tweet比堆顶即堆中最早的tweet还要早就跳出循环，因为链表中的tweet的排序是最新的在最前面，
-                        // 所以这条tweet后面的tweets肯定时间戳都比当前这条还要早，没必要再往下找
-                        if(twt.timePosted <= feedHeap.peek().timePosted) 
-                            break;
-                        else
-                        {
-                            // 加入这条tweet
-                            feedHeap.add(twt);
-                            // 把最早的tweet删除
-                            feedHeap.poll();
-                        }
+                        // 加入这条tweet
+                        feedHeap.offer(twt);
+                        // 把最早的tweet删除
+                        feedHeap.poll();
                     }
                 }
             }
         }
-        List<Integer> myFeed = new LinkedList<Integer>();
+        
         // 把所有堆中的tweets加入myFeed中，因为堆中的tweets是按照时间戳从早到晚排序，
         // 而我们输出的是从最新开始，所以每次插入到第一个位置
         while(!feedHeap.isEmpty())
@@ -120,7 +117,7 @@ public class Twitter {
     public void unfollow(int followerId, int followeeId) 
     {
         // 不能删除自己本身
-        if(!followees.containsKey(followerId) || followerId == followeeId) 
+        if(!followees.containsKey(followerId) || !followees.get(followerId).contains(followeeId) || followerId == followeeId) 
             return;
         followees.get(followerId).remove(followeeId);
     }
