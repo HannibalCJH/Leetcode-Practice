@@ -1,4 +1,5 @@
 public class Solution {
+    // 时间复杂度O(n^2)，空间复杂度O(n^2)
     public IList<IList<int>> Generate(int numRows) 
     {
         IList<IList<int>> result = new List<IList<int>>();
