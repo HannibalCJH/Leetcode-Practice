@@ -9,7 +9,7 @@ public class Solution {
         // 但同时我们也发现，其实只要保存一下要被覆盖的当前元素，我们完全可以用一个一维数组进行保存，而不是有两个数组curLevel和nextLevel
         int[] row = new int[n];
         // 记录当前将要被修改元素的数据，用作递推时上一层元素的左下角元素，实例参考链接中的表格
-        int bottomLeft = 0;，
+        int bottomLeft = 0;
         // 所以我们采取自底向上的构建方法，根据转移方程我们也可以看出，我们需要先完成i+1行的构建才能递推回第i行
         for(int i = n - 1; i >= 0; i--)
         {
