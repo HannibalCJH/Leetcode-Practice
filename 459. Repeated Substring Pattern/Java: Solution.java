@@ -1,5 +1,5 @@
 public class Solution {
-    // 时间复杂度O(n)，空间复杂度O(n)
+    // 时间复杂度O(n^2)，空间复杂度O(n)
     public boolean repeatedSubstringPattern(String s) 
     {
         if(s == null || s.length() == 0)
@@ -10,7 +10,8 @@ public class Solution {
         // 首字符上次出现的位置
         int lastIndex = 0;
         StringBuilder sb = new StringBuilder();
-        while(lastIndex < length)
+        // 模式的长度不能超过原字符串长度的一半
+        while(lastIndex < length / 2)
         {
             // 首字符下一次出现的位置
             int next = s.indexOf(start, lastIndex + 1);
