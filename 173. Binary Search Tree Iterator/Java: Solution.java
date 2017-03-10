@@ -30,7 +30,9 @@ public class BSTIterator {
         return !stack.isEmpty();    
     }
     
-    // 时间复杂度O(h)，空间复杂度O(h)
+    // 平均时间复杂度O(1)，next()函数遍历一遍所有的节点总的时间为O(n)，但是我们一次call只往后找一个，
+    // 要找call总共为n次才能遍历完，所以平均时间复杂度O(1)
+    // 空间复杂度O(h)
     /** @return the next smallest number */
     public int next() 
     {
