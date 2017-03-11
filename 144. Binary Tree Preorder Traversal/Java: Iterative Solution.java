@@ -16,16 +16,20 @@ public class Solution {
             
         List<Integer> result = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
-        stack.push(root);
-        while(!stack.isEmpty())
+        while(root != null || !stack.isEmpty())
         {
-            TreeNode node = stack.pop();
-            result.add(node.val);
-            // 因为是压入栈，所以先右子树后左子树，这样在弹出时我们先遍历的是左子树然后再右子树
-            if(node.right != null)
-                stack.push(node.right);
-            if(node.left != null)
-                stack.push(node.left);
+            if(root != null)
+            {
+                // 先序遍历先把当前节点加上
+                result.add(root.val);
+                stack.push(root);
+                root = root.left;
+            }
+            else
+            {
+                root = stack.pop();
+                root = root.right;
+            }
         }
         return result;
     }
