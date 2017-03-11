@@ -15,15 +15,19 @@ public class Solution {
         
         IList<int> result = new List<int>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
-        stack.Push(root);
-        while(stack.Count > 0)
+        while(root != null || stack.Count > 0)
         {
-            TreeNode node = stack.Pop();
-            result.Add(node.val);
-            if(node.right != null)
-                stack.Push(node.right);
-            if(node.left != null)
-                stack.Push(node.left);
+            if(root != null)
+            {
+                result.Add(root.val);
+                stack.Push(root);
+                root = root.left;
+            }
+            else
+            {
+                root = stack.Pop();
+                root = root.right;
+            }
         }
         return result;
     }
