@@ -9,9 +9,9 @@
  */
 public class Solution {
     // 时间复杂度O(n)，空间复杂度O(h)，h为树的高度
-	public List<Integer> postorderTraversal(TreeNode root) 
-	{
-	    if(root == null)
+    public List<Integer> postorderTraversal(TreeNode root) 
+    {
+	if(root == null)
             return new ArrayList<Integer>();
         
         // 用双向链表，头尾都可以操作
@@ -38,5 +38,5 @@ public class Solution {
             }
         }
         return result;
-	}
+    }
 }
