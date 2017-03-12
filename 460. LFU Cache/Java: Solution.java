@@ -57,10 +57,14 @@ public class LFUCache {
             // 获得key对应的节点
             ListNode cur = map.get(key);
             // 这个节点所属于的被访问的次数中，这个节点是最新的，而且这个次数是目前所有节点中最多的
-            if(latestNodes.get(cur.count) == cur && latestNodes.get(cur.count + 1) == null) 
+            if(latestNodes.get(cur.count) == cur && !latestNodes.containsKey(cur.count + 1)) 
             {
-                // 找这个被访问次数中的第二新的节点，如果存在则更新为当前被访问数的最新节点，不然则设置这个访问次数的最新节点为空
-                latestNodes.put(cur.count, cur.prev.count == cur.count ? cur.prev : null);
+                // 找这个被访问次数中的第二新的节点，如果存在则更新为当前被访问数的最新节点，不然则在latestNodes表中删除这个键
+                ListNode prev = cur.prev;
+                if(prev.count == cur.count)
+                    latestNodes.put(cur.count, prev);
+                else
+                    latestNodes.remove(cur.count);
                 // 这里不需要删除当前节点即removeNode(cur)，因为在整个双向链表中这个节点已经是最后一个节点，没有被访问次数更多的节点了
                 // 增加被访问的次数
                 cur.count++;
@@ -74,17 +78,22 @@ public class LFUCache {
                 // 这个节点所属于的被访问的次数中，这个节点是最新的
                 if(latestNodes.get(cur.count) == cur)
                 {
-                    // 找这个被访问次数中的第二新的节点，如果存在则更新为当前被访问数的最新节点，不然则为空
-                    latestNodes.put(cur.count, cur.prev.count == cur.count ? cur.prev : null);
+                    // 找这个被访问次数中的第二新的节点，如果存在则更新为当前被访问数的最新节点，不然则在latestNodes表中删除这个键
+                    ListNode prev = cur.prev;
+                    if(prev.count == cur.count)
+                        latestNodes.put(cur.count, prev);
+                    else
+                        latestNodes.remove(cur.count);
                 }
-                // 删除这个节点，等会儿把它往后移到被访问次数加1的节点中的最后一个
-                removeNode(cur);
+                
                 // 增加被访问的次数
                 cur.count++;
                 // 更新节点的值
                 cur.val = value;
                 // 如果没有被访问次数更多的节点了，那就找被访问次数减1的最新被访问的节点
-                ListNode lastestNode = latestNodes.get(cur.count) == null ? latestNodes.get(cur.count - 1) : latestNodes.get(cur.count);
+                ListNode lastestNode = !latestNodes.containsKey(cur.count) ? latestNodes.get(cur.count - 1) : latestNodes.get(cur.count);
+                // 删除这个节点，等会儿把它往后移到被访问次数加1的节点中的最后一个
+                removeNode(cur);
                 // 把当前节点加到后面
                 insertNode(lastestNode, cur);
                 // 当前节点是这个被访问次数中最新的节点
@@ -121,7 +130,7 @@ public class LFUCache {
     
     public void addToHead(ListNode node)
     {
-        if(latestNodes.get(1) == null)
+        if(!latestNodes.containsKey(1))
         {
             // 把新加入的节点插入到链表表头
             insertNode(head, node);
