@@ -11,7 +11,7 @@ public class Solution {
         for(int i = n; i >= 0; i--)
         {
             // 开始的位置
-            int start = i % A.length;
+            int start = i % n;
             max = Math.max(max, calculate(A, start));
         }
         return max;
