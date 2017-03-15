@@ -1,7 +1,7 @@
 public class Solution {
     // 参考https://discuss.leetcode.com/topic/16797/very-concise-o-log-min-m-n-iterative-solution-with-detailed-explanation
     // 时间复杂度O(log(min(m,n)))，我们只是二分查找较短数组寻找合适的切分点
-    // 空间复杂度O(1)
+    // 空间复杂度O(1
     public double findMedianSortedArrays(int[] nums1, int[] nums2) 
     {
         int m = nums1.length, n = nums2.length;
