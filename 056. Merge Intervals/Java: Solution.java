@@ -8,7 +8,7 @@
  * }
  */
 public class Solution {
-    // 时间复杂度nlog(n)，主要是排序花时间
+    // 时间复杂度O(nlog(n))，主要是排序花时间
     // 空间复杂度O(n)
     public List<Interval> merge(List<Interval> intervals) 
     {
