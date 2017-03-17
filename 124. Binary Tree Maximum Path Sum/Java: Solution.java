@@ -20,7 +20,7 @@ public class Solution {
     public int maxSum(TreeNode node) 
     {
         if(node == null) 
-        	return 0;
+            return 0;
         // 递归求左支路的最大路径和
         int leftVal = maxSum(node.left);
         // 递归求右支路的最大路径和
