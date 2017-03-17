@@ -39,7 +39,6 @@ public class Solution {
     
     private void checkChild(TreeLinkNode node)
     {
-        // 左子树
         if(node != null) 
         {
             if(prev != null)
