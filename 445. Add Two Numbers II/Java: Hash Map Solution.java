@@ -7,40 +7,41 @@
  * }
  */
 public class Solution {
-    // 时间复杂度O(m+n)，空间复杂度O(m+n)
+    // 时间复杂度O(max(m,n))，空间复杂度O(m+n)
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) 
     {
-        // 哈希表存index和值
-        HashMap<Integer, Integer> map1 = new HashMap<>();
-        HashMap<Integer, Integer> map2 = new HashMap<>();
+        List<Integer> list1 = new ArrayList<Integer>();
+        List<Integer> list2 = new ArrayList<Integer>();
         
-        // 遍历两个链表把index和对应的值存入哈希表 
-        int i = 0, j = 0;
-        ListNode pt1 = l1, pt2 = l2;
-        while(pt1 != null)
+        // 遍历两个链表存下每个节点的值
+        while(l1 != null || l2 != null)
         {
-            map1.put(++i, pt1.val);
-            pt1 = pt1.next;
-        }
-        while(pt2 != null)
-        {
-            map2.put(++j, pt2.val);
-            pt2 = pt2.next;
+            if(l1 != null)
+            {
+                list1.add(l1.val);
+                l1 = l1.next;
+            }
+            if(l2 != null)
+            {
+                list2.add(l2.val);
+                l2 = l2.next;
+            }
         }
         
         ListNode pre = null;
-        int carry = 0, sum = 0;
-        while(i > 0 || j > 0 || carry > 0)
+        int idx1 = list1.size() - 1, idx2 = list2.size() - 1;
+        int carry = 0;
+        // 倒序遍历节点值
+        while(idx1 >= 0 || idx2 >= 0 || carry > 0)
         {
-            int val1 = i > 0 ? map1.get(i--) : 0;
-            int val2 = j > 0 ? map2.get(j--) : 0;
-            
-            sum = val1 + val2 + carry;
+            int num1 = idx1 >= 0 ? list1.get(idx1--) : 0;
+            int num2 = idx2 >= 0 ? list2.get(idx2--) : 0;
+            int sum = num1 + num2 + carry;
             ListNode cur = new ListNode(sum % 10);
+            carry = sum / 10;
             cur.next = pre;
             pre = cur;
-            carry = sum / 10;
         }
-        return pre;   
+        return pre;
     }
 }
