@@ -9,7 +9,7 @@
  */
 public class Solution {
     // 贪心算法
-    // 时间复杂度nlog(n)
+    // 时间复杂度O(nlogn)
     public int MinMeetingRooms(Interval[] intervals) 
     {
         if(intervals == null || intervals.Length == 0)
