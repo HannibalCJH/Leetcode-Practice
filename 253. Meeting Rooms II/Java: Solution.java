@@ -9,7 +9,7 @@
  */
 public class Solution {
     // 贪心算法
-    // 时间复杂度nlog(n)，空间复杂度O(n)
+    // 时间复杂度O(nlogn)，空间复杂度O(n)
     public int minMeetingRooms(Interval[] intervals) 
     {
         if(intervals == null || intervals.length == 0)
