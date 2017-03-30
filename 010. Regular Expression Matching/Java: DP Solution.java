@@ -8,18 +8,18 @@ public class Solution {
         boolean[][] state = new boolean[s.length() + 1][p.length() + 1];
         state[0][0] = true;
         // 初始化动归数组第0行
-        for(int j = 1; j < p.length() + 1; j++) 
+        for(int i = 1; i < p.length() + 1; i++) 
         {
             // 遇到'*'
-            if(p.charAt(j - 1) == '*') 
+            if(p.charAt(i - 1) == '*') 
             {
                 // 判断条件
                 // 1. 第一个元素
                 // 2. 前一个有效元素的状态，因为'*'是和前一个字符合起来使用，所以这里讲的前一个有效字符是'*'前面的那个字符
                 // 比如，"cb*"，我们要找的前一个有效字符是b
-                if(state[0][j - 1] || (j > 1 && state[0][j - 2])) 
+                if(state[0][i - 1] || (i > 1 && state[0][i - 2])) 
                 {
-                    state[0][j] = true;
+                    state[0][i] = true;
                 }
             } 
         }
