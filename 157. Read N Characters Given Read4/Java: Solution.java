@@ -19,23 +19,24 @@ public class Solution extends Reader4 {
         char[] buffer = new char[4];
         int index = 0;
         
-        while(true) 
+        // 最多读取n个字符
+        while(index < n) 
         {
             // 记录读取的字符个数，并且把这些对应的字符传入buffer
             int curr = read4(buffer);
-            // 当前还需要向目标数组放入的字符个数
-            // 1. curr < n - index：读取的字符还无法放满n个
-            // 2. curr >= n - index： 当前目标数组buf里的字符个数加上curr已经超出要返回的n
-            int currLen = Math.min(curr, n - index);
-            // 把读取的字符放入目标数组buf
-            for(int i = 0; i < currLen; i++) 
-            {
-                buf[index++] = buffer[i];
-            }
-            
-            // 文件已经读取完毕或者读取的字符已经达到n个
-            if(currLen != 4 || index == n) 
+            // 文件已经读取完毕，没有更多的字符
+            if(curr == 0) 
                 break;
+            
+            // 把读取的字符放入目标数组buf
+            // 有两个限制条件，可能跳出while循环的情况
+            // 1. index >= n：目标数组里已经存入了n个字符
+            // 2. bufferPtr >= curr：这次read4()读取的字符都已经存入了目标数组buf
+            int bufferPtr = 0;
+            while(index < n && bufferPtr < curr)
+            {
+                buf[index++] = buffer[bufferPtr++];
+            }
         }
         return index;
     }
