@@ -11,19 +11,19 @@ public class Solution : Reader4 {
     {
         char[] buffer = new char[4];
         int index = 0;
-        
-        while(true)
+        // 最多只读取n个字符
+        while(index < n)
         {
             int curr = Read4(buffer);
-            int currLen = Math.Min(curr, n - index);
-            
-            for(int i = 0; i < currLen; i++)
-            {
-                buf[index++] = buffer[i];
-            }
-            
-            if(curr != 4 || index == n)
+            // 文件读取完毕，没有更多字符
+            if(curr == 0)
                 break;
+            
+            int bufferPtr = 0;
+            while(index < n && bufferPtr < curr)
+            {
+                buf[index++] = buffer[bufferPtr++];
+            }
         }
         return index;
     }
