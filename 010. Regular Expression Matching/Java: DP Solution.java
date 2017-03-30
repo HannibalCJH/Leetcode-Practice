@@ -7,7 +7,6 @@ public class Solution {
         // 二维动态规划，第0行和第0列用来初始化状态
         boolean[][] state = new boolean[s.length() + 1][p.length() + 1];
         state[0][0] = true;
-        // no need to initialize state[i][0] as false
         // 初始化动归数组第0行
         for(int j = 1; j < p.length() + 1; j++) 
         {
