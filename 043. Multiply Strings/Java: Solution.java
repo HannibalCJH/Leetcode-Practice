@@ -26,7 +26,7 @@ public class Solution {
         }
         StringBuilder sb = new StringBuilder();
         i = 0;
-        // 跳过前面无用的0
+        // 跳过前面无用的0，注意我们要保留最后一位即使是0，所以判断条件为i < length - 1
         while(i < length - 1 && result[i] == 0)
         {
             i++;
