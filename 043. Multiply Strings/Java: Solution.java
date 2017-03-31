@@ -4,7 +4,7 @@ public class Solution {
     public String multiply(String num1, String num2) 
     {
         if(num1 == null || num2 == null) 
-        	return null;
+            return null;
         int m = num1.length(), n = num2.length();
         // 结果的位数最多可能是两个乘数位数之和
         int length = m + n;
