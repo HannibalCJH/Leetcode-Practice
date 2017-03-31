@@ -10,9 +10,9 @@ public class Solution {
     // 时间复杂度O(n)，访问所有的节点且仅访问了一次
     // 空间复杂度O(n)
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) 
-	{
+    {
         if(node == null) 
-        	return node;
+            return node;
         // 用队列来实现广度优先搜索无向图
         Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
         // 用哈希表储存原图与克隆图中节点映射关系
