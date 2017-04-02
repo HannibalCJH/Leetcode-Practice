@@ -59,7 +59,7 @@ public class Solution {
         return true;
     }
     
-    public void check(String word1, String word2, Map<Character, Set<Character>> map) 
+    private void check(String word1, String word2, Map<Character, Set<Character>> map) 
     {
         int i = 0;
         // 找到两者第一个不相等的字符
