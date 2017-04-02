@@ -10,7 +10,7 @@ public class Solution {
             for(int j = 0; j < words[i].length(); j++) 
             {
                 char ch = words[i].charAt(j);
-                // 为了排序结果出现所有字母，对于每个字母，都要初始化，
+                // 为了排序结果出现所有字母，对于每个字母，都要初始化
                 if(!graph.containsKey(ch))                  
                     graph.put(ch, new HashSet<Character>());
             }
