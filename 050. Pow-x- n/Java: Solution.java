@@ -10,8 +10,8 @@ public class Solution {
         if(n == Integer.MIN_VALUE)
         {
             // 预处理x和n，先进行一次平方
-            x = x * x;
-            n = n / 2;
+            x *= x;
+            n /= 2;
         }
         // 指数为负数
         if(n < 0) 
