@@ -1,6 +1,6 @@
 public class Solution {
     // 动态规划
-    // 时间复杂度O(n^2)，空间复杂度O(target)
+    // 时间复杂度O(target*n)，空间复杂度O(target)
     public int combinationSum4(int[] nums, int target) 
     {
         // dp数组用来记录元素和为i的子数组的个数
