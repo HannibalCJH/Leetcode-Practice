@@ -55,7 +55,9 @@ public class Solution {
             if(counter > 1) 
             {  
             	// 计算每个单词后的空格
-                int spaces_per_word = spaces / (counter - 1);  
+            	// 两个单词间最少需要的空格数
+                int spaces_per_word = spaces / (counter - 1);
+                // 如果空格不能被整除，即不能平均分配，记录剩余的额外空格
                 int extra_spaces = spaces % (counter - 1);  
                 // 不用加等号，因为index现在指向的是下一个单词
                 while(initial < index)
@@ -64,19 +66,15 @@ public class Solution {
                     // 最后一个单词不需要空格
                     if(--counter == 0)
                         break;  
+                    for(int i = 0; i < spaces_per_word; i++)  
+                        sb.append(" ");
+                    // 如果还有剩余的额外空格
                     if(extra_spaces > 0)
-                    {  
-                        for(int i = 0; i < spaces_per_word; i++)  
-                            sb.append(" ");  
+                    {
                         // 每个单词额外加一个空格  
                         sb.append(" ");
-                        extra_spaces--;  
-                    }  
-                    else
-                    {  
-                        for(int i = 0; i < spaces_per_word; i++)  
-                            sb.append(" ");  
-                    }  
+                        extra_spaces--;
+                    }
                 }  
             }  
             // 如果这行只有一个单词，所以空格加到单词后面
