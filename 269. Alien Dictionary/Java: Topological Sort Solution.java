@@ -3,14 +3,14 @@ public class Solution {
     // 时间复杂度O(nk + m^m)，其中n为单词个数，k为平均单词长度，m为总共给出的字母个数
     // 空间复杂度O(m^m)
     public String alienOrder(String[] words) 
-    {
+	{
         Map<Character, Set<Character>> graph = new HashMap<Character, Set<Character>>();
         for(int i = 0; i < words.length; i++) 
         {
             for(int j = 0; j < words[i].length(); j++) 
             {
                 char ch = words[i].charAt(j);
-                // 为了排序结果出现所有字母，对于每个字母，都要初始化
+                // 为了排序结果出现所有字母，对于每个字母，都要初始化，
                 if(!graph.containsKey(ch))                  
                     graph.put(ch, new HashSet<Character>());
             }
@@ -21,9 +21,9 @@ public class Solution {
         }
         
         Stack<Character> stack = new Stack<Character>();
-        // 标记DFS路径上的点，避免重复计算
+        // 标记DFS路径上的点，避免重复计算，这里的visited相当于动态规划中的记忆数组，用来记忆搜索成功没有形成环的字母
         boolean[] visited = new boolean[26];
-        // 用来发现环
+        // 用来发现环，这里的isLoop相当于平时使用的visited，记录路径上的点是否被访问过
         boolean[] isLoop = new boolean[26];
         for(char ch : graph.keySet())
         {
@@ -44,10 +44,10 @@ public class Solution {
         int i = ch - 'a';
         // 已经搜过了，可以直接跳过
         if(visited[i])
-            return true;
+        	return true;
         // 发现环，说明输入的词典是有问题的
         if(isLoop[i]) 
-            return false;
+        	return false;
         // 往下搜索之前把isLoop[i]标记为已经走过，在之后的递归中如果再碰到这个字母就形成了环
         isLoop[i] = true;
         for(char next : graph.get(ch))
@@ -59,7 +59,7 @@ public class Solution {
         return true;
     }
     
-    private void check(String word1, String word2, Map<Character, Set<Character>> map) 
+    public void check(String word1, String word2, Map<Character, Set<Character>> map) 
     {
         int i = 0;
         // 找到两者第一个不相等的字符
@@ -69,8 +69,8 @@ public class Solution {
         }
         if(i < word1.length() && i < word2.length())
         {
-            // 对于第一个不相等的字符，前一个单词的字符排在后一个单词的字符的前面
-            // 这里相当于加一条有向线段从word1(i)到word2(i)
+        	// 对于第一个不相等的字符，前一个单词的字符排在后一个单词的字符的前面
+        	// 这里相当于加一条有向线段从word1(i)到word2(i)
             map.get(word1.charAt(i)).add(word2.charAt(i));
         }
     }
