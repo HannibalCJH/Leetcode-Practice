@@ -1,7 +1,7 @@
 public class Solution {
     // 拓扑排序
-    // 时间复杂度O(n)，n为课程总数
-    // 空间复杂度O(n)
+    // 时间复杂度O(V + E)，V为节点总数，E为边数
+    // 空间复杂度O(V)
     public boolean canFinish(int numCourses, int[][] prerequisites) 
     {
         List<Integer>[] graph = new List[numCourses];
