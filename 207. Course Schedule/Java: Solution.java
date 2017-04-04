@@ -24,6 +24,8 @@ public class Solution {
                 queue.offer(i);
         }
         
+        // 如果有环，那在环中的节点的入度不可能被减到0，所以不会加入queue，也不会计入count，
+        // 最后得到的节点总数会小于numCourses
         int count = 0;
         while(!queue.isEmpty())
         {
@@ -31,9 +33,8 @@ public class Solution {
             count++;
             List<Integer> nextList = graph[node];
             // 删除node节点，把所有node指向的节点的入度减1
-            for(int i = 0; i < nextList.size(); i++)
+            for(int next : nextList)
             {
-                int next = nextList.get(i);
                 indegrees[next]--;
                 // 下一个节点的入度为0，加入queue
                 if(indegrees[next] == 0)
