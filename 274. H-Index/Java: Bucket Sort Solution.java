@@ -2,8 +2,8 @@ public class Solution {
     // Bucket Sort
     // 时间复杂度O(n)，空间复杂度O(n)
     public int hIndex(int[] citations) 
-	{
-	    int length = citations.length;
+    {
+	int length = citations.length;
 	    // count[i]表示有多少文章被引用了i次
         int[] count = new int[length + 1];
         
@@ -31,5 +31,5 @@ public class Solution {
                 return i;
         }
         return 0;
-	}
+    }
 }
