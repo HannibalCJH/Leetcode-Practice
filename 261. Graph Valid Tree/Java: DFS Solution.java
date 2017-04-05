@@ -5,8 +5,6 @@ public class Solution {
     // 空间复杂度O(n)
     public boolean validTree(int n, int[][] edges) 
     {
-        if(edges.length != n - 1)
-            return false;
         // 邻接链表存节点
         List<Integer>[] adjList = new List[n];
         // 初始化每个节点
