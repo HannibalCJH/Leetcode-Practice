@@ -1,42 +1,38 @@
 public class Solution {
     public bool ValidTree(int n, int[,] edges) 
     {
-        int[] visited = new int[n];
-        List<List<int>> adjList = new List<List<int>>(n);
-        // 初始化邻接表
+        List<int>[] adjList = new List<int>[n];
+        // 初始化邻接链表
         for(int i = 0; i < n; i++)
-            adjList.Add(new List<int>());
+            adjList[i] = new List<int>();
+        // 构建无向图
         for(int i = 0; i < edges.GetLength(0); i++)
         {
-            adjList[edges[i,0]].Add(edges[i,1]);
-            adjList[edges[i,1]].Add(edges[i,0]);
+            adjList[edges[i, 0]].Add(edges[i, 1]);
+            adjList[edges[i, 1]].Add(edges[i, 0]);
         }
         
-        if(HasCycle(-1, 0, visited, adjList))
+        bool[] visited = new bool[n];
+        // 有环
+        if(HasCycle(adjList, -1, 0, visited))
             return false;
-        foreach(int v in visited)
-        {
-            if(v == 0)
+        // 是否还有节点没有被访问到
+        for(int i = 0; i < n; i++)
+            if(!visited[i])
                 return false;
-        }
         return true;
     }
     
-    private bool HasCycle(int preNode, int curNode, int[] visited, List<List<int>> adjList)
+    private bool HasCycle(List<int>[] adjList, int pre, int cur, bool[] visited)
     {
-        visited[curNode] = 1;
-        foreach(int nextNode in adjList[curNode])
+        List<int> nextList = adjList[cur];
+        visited[cur] = true;
+        foreach(int next in nextList)
         {
-            // 不往回走
-            if(nextNode != preNode)
+            if(next != pre)
             {
-                if(visited[nextNode] == 1)
+                if(visited[next] || HasCycle(adjList, cur, next, visited))
                     return true;
-                else if(visited[nextNode] == 0)
-                {
-                    if(HasCycle(curNode, nextNode, visited, adjList))
-                    return true;
-                }
             }
         }
         return false;
