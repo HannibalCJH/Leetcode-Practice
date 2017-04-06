@@ -8,7 +8,7 @@
  * }
  */
 public class Solution {
-    // 思路和Binary Tree Maximum Path Sum一模一样，只是每次加的不是节点值而是
+    // 思路和Binary Tree Maximum Path Sum一模一样，只是每次加的不是节点值而是节点数也就是1
     // 时间复杂度O(n)，空间复杂度O(h)，h为树的高度
     int max = 1;
     
