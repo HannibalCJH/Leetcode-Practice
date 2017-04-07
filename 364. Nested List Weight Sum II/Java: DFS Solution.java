@@ -36,6 +36,7 @@ public class Solution {
     // 和Nested List Weight Sum不一样的地方是，之前是传层数，现在直接传上一层整数的和
     // 每一层都加一遍上一层的整数和，比如在第三层的时候，第一层的整数和就分别在第一、二和三层都加过一遍相当于乘以3，
     // 而第二层的整数和在第二和第三层累加过，相当于乘以了2，依次类推
+    // 其实应该是BFS的递归版本
     private int dfs(List<NestedInteger> nestedList, int preSum)
     {
         if(nestedList == null || nestedList.size() == 0)
