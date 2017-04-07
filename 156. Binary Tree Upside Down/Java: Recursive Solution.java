@@ -11,9 +11,9 @@ public class Solution {
     // 时间复杂度O(n)，n为左节点的个数
     // 空间复杂度O(h)，h为递归左子树的最大深度
     public TreeNode upsideDownBinaryTree(TreeNode root) 
-	{
-	    // 根为空或者左节点为空就返回
-		if(root == null || root.left == null)
+    {
+	// 根为空或者左节点为空就返回
+	if(root == null || root.left == null)
             return root;
         // 记录当前节点的左右节点
         TreeNode left = root.left, right = root.right;
@@ -29,5 +29,5 @@ public class Solution {
         root.right = null;
         // 返回的节点都是新的根，从最底层往上返回时不会改变
         return newRoot;
-	}
+    }
 }
