@@ -21,9 +21,9 @@ public class Solution {
             return 0;
         // 找最大的倍数，让除数翻倍后仍然小于被除数，即divisor * multiple <= dividend
         // 考虑到performance，我们这里每次翻一倍1, 2, 4, 8, 16...2^n
-	    // 可以理解为二分法，每次其实该层递归只计算了dividend/2，
-	    // 后面因为sum翻倍以后超过了dividend就算到了下一次递归中
-	    // 初始化sum为divisor
+	// 可以理解为二分法，每次其实该层递归只计算了dividend/2，
+	// 后面因为sum翻倍以后超过了dividend就算到了下一次递归中
+	// 初始化sum为divisor
         long sum = divisor;
         // 初始化倍数为1
         int multiple = 1;
