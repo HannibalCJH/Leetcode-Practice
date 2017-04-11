@@ -20,6 +20,8 @@ public class Solution {
             {
                 if(nums[j] > nums[i])
                 {
+                    // i和j交换后后面的子数组依然是递减的，因为原来的nums[j]是第一个比nums[i]大的数，
+                    // 交换以后，依然大于j+1之后的元素，而i+1到j-1的元素肯定比原来的nums[j]大也比nums[i]大
                     swap(nums, i, j);
                     break;
                 }
