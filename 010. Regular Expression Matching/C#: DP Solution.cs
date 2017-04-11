@@ -10,10 +10,7 @@ public class Solution {
         {
             if(p[i - 1] == '*')
             {
-                if(i == 1 || (i > 1 && dp[0, i - 2]))
-                {
-                    dp[0, i] = true;
-                }
+                dp[0, i] = dp[0, i - 2];
             }
         }
         
