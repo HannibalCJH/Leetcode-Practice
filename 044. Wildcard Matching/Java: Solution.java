@@ -11,7 +11,7 @@ public class Solution {
         // 遍历字符串s
         while(i < s.length())
         {  
-        	// 如果p的字符是'*'
+            // 如果p的字符是'*'
             while(j < p.length() && p.charAt(j) == '*') 
             {  
             	// 保存'*'的位置然后移动到p的下一个字符，注意是j++而不是++j
@@ -32,7 +32,7 @@ public class Solution {
                 {
                     // 有'*'，则用'*'来代替s和j不匹配的部分
                     // 调整i和j来实现回溯
-                	// 把j设为'*'位置的下一个
+                    // 把j设为'*'位置的下一个
                     j = star + 1;  
                     // 把i设为'*'出现时对应的s字符串的位置
                     i = sPos++;    
