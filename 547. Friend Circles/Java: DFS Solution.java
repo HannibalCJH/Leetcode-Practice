@@ -32,7 +32,7 @@ public class Solution {
         {
             if(i == cur)
                 continue;
-            if(M[pre][i] == 1)
+            if(M[cur][i] == 1)
                 dfs(M, i, visited);
         }
     }
