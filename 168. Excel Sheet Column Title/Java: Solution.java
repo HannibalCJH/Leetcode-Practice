@@ -1,5 +1,5 @@
 public class Solution {
-    // 时间复杂度O(n)，空间复杂度O(1)
+    // 时间复杂度O(logn)，空间复杂度O(1)
     public String convertToTitle(int n) 
     {
         StringBuilder sb = new StringBuilder();
