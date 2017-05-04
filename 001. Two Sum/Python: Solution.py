@@ -13,7 +13,6 @@ class Solution(object):
         for i, n in enumerate(nums):
             key = target - n
             if key in map:
-                return [map[key], i]
-            
+                return [map[key], i]        
             map[n] = i
         return [0, 0]
