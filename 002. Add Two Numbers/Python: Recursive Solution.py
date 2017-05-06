@@ -13,10 +13,8 @@ class Solution(object):
         """
         def addNumbers(list1, list2, carry):
             if not list1 and not list2:
-                if carry:
-                    return ListNode(1)
-                else:
-                    return None
+                # Python的三元运算符，"True result" if True else "False result"
+                return ListNode(1) if carry else None
                 
             if not list1:
                 list1 = ListNode(0)
