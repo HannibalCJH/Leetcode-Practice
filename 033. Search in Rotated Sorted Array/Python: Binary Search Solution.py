@@ -23,6 +23,5 @@ class Solution(object):
                 if nums[mid] < target and target <= nums[right]:
                     left = mid + 1
                 else:
-                    right = mid - 1
-        
+                    right = mid - 1 
         return -1
