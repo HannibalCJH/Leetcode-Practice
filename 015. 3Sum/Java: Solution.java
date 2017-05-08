@@ -3,7 +3,7 @@ public class Solution {
     // 1. 排序是数组递增
     // 2. 先定下第一个数nums[i]
     // 3. 用两个指针找另外两个数，一个从i+1开始往后，一个从数组末尾往前
-    // 时间复杂度O(n^2)，空间复杂度O(1)
+    // 时间复杂度O(nlogn + n^2)，空间复杂度O(1)
     public List<List<Integer>> threeSum(int[] nums) 
     {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
