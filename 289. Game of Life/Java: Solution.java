@@ -3,7 +3,7 @@ public class Solution {
     public void gameOfLife(int[][] board) 
     {
         if(board == null || board.length == 0 || board[0].length == 0) 
-        	return;
+            return;
         
         int m = board.length, n = board[0].length;
         
