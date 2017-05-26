@@ -1,7 +1,7 @@
 public class Solution {
     // 时间复杂度O(mn)，空间复杂度O(1)
     public void gameOfLife(int[][] board) 
-	{
+    {
         if(board == null || board.length == 0 || board[0].length == 0) 
         	return;
         
