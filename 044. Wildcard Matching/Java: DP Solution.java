@@ -22,6 +22,7 @@ public class Solution {
             else
                 break;
         }
+        
     	// 两个字符串都不是空字符串，尝试匹配
     	for(int i = 1; i <= m; i++)
     	{
