@@ -27,15 +27,15 @@ public class Solution {
     	{
     	    for(int j = 1; j <= n; j++)
     	    {
-// p的字符不是'*'，那就必须要求
-// 1. s和p之前的字符都匹配
-// 2. s和p的字符刚好对应或者p的字符是单字符通配符'?'
-if(p.charAt(j - 1) != '*')
-    dp[i][j] = dp[i - 1][j - 1] && (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '?');
-else
-    // dp[i][j - 1]: 省略当前'*'，即'*'匹配一个空字符
-    // dp[i - 1][j]: '*'匹配当前字符
-    dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
+            // p的字符不是'*'，那就必须要求
+            // 1. s和p之前的字符都匹配
+            // 2. s和p的字符刚好对应或者p的字符是单字符通配符'?'
+            if(p.charAt(j - 1) != '*')
+                dp[i][j] = dp[i - 1][j - 1] && (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '?');
+            else
+                // dp[i][j - 1]: 省略当前'*'，即'*'匹配一个空字符
+                // dp[i - 1][j]: '*'匹配当前字符
+                dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
     	    }
     	}
     	return dp[m][n];
